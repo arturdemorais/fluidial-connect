@@ -2,95 +2,124 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* CRM Design System - Modern & Professional */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Layout */
+    --background: 250 50% 98%;
+    --foreground: 240 10% 15%;
 
+    /* Cards & Surfaces */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 10% 15%;
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.04);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Primary CRM Brand - Blue/Violet Gradient */
+    --primary: 248 85% 58%;
+    --primary-light: 252 90% 68%;
+    --primary-dark: 244 75% 48%;
+    --primary-foreground: 0 0% 100%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Secondary Actions */
+    --secondary: 244 20% 95%;
+    --secondary-foreground: 240 10% 25%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Muted States */
+    --muted: 246 20% 96%;
+    --muted-foreground: 240 5% 55%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent Highlights */
+    --accent: 248 95% 96%;
+    --accent-foreground: 248 85% 58%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Status Colors */
+    --success: 142 76% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 85% 55%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Interactive Elements */
+    --border: 244 20% 88%;
+    --input: 244 20% 94%;
+    --ring: 248 85% 58%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Pipeline Stage Colors */
+    --stage-new: 197 92% 58%;
+    --stage-qualifying: 38 92% 58%;
+    --stage-proposal: 277 78% 58%;
+    --stage-closing: 142 76% 45%;
 
-    --radius: 0.5rem;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(248, 85%, 58%), hsl(277, 78%, 58%));
+    --gradient-card: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(244, 20%, 98%));
+    --gradient-success: linear-gradient(135deg, hsl(142, 76%, 45%), hsl(158, 64%, 52%));
 
-    --sidebar-background: 0 0% 98%;
+    /* Shadows & Effects */
+    --shadow-soft: 0 2px 16px -4px rgba(0,0,0,0.1);
+    --shadow-strong: 0 8px 32px -8px rgba(0,0,0,0.15);
+    --glow-primary: 0 0 24px rgba(248, 85%, 58%, 0.15);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Layout */
+    --radius: 12px;
+    --radius-large: 16px;
+    --spacing-section: 2rem;
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar */
+    --sidebar-background: 248 50% 98%;
+    --sidebar-foreground: 240 10% 25%;
+    --sidebar-primary: 248 85% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 244 30% 94%;
+    --sidebar-accent-foreground: 240 10% 25%;
+    --sidebar-border: 244 20% 88%;
+    --sidebar-ring: 248 85% 58%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Core Layout */
+    --background: 240 10% 8%;
+    --foreground: 244 20% 92%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    /* Cards & Surfaces */
+    --card: 240 10% 12%;
+    --card-foreground: 244 20% 92%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    /* Primary maintains brand consistency */
+    --primary: 248 85% 58%;
+    --primary-light: 252 90% 68%;
+    --primary-dark: 244 75% 48%;
+    --primary-foreground: 0 0% 100%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Adjusted for dark mode */
+    --secondary: 240 8% 18%;
+    --secondary-foreground: 244 20% 85%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --muted: 240 8% 15%;
+    --muted-foreground: 244 10% 65%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 240 8% 18%;
+    --accent-foreground: 248 85% 68%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Interactive Elements */
+    --border: 240 8% 20%;
+    --input: 240 8% 18%;
+    --ring: 248 85% 58%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    /* Sidebar Dark */
+    --sidebar-background: 240 10% 10%;
+    --sidebar-foreground: 244 15% 80%;
+    --sidebar-primary: 248 85% 58%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 240 8% 15%;
+    --sidebar-accent-foreground: 244 15% 85%;
+    --sidebar-border: 240 8% 18%;
   }
 }
 
@@ -100,6 +129,158 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Pipeline Column Styles */
+  .pipeline-column {
+    @apply bg-muted/30 rounded-xl p-4 min-h-[600px] w-80 flex flex-col;
+    transition: var(--transition-smooth);
+  }
+  
+  .pipeline-column:hover {
+    @apply bg-muted/40;
+  }
+
+  /* Lead Card Styles */
+  .lead-card {
+    @apply bg-card rounded-lg p-4 mb-3 border border-border/50 cursor-pointer;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-smooth);
+  }
+
+  .lead-card:hover {
+    box-shadow: var(--shadow-soft);
+    @apply border-border scale-[1.02];
+  }
+
+  .lead-card.dragging {
+    @apply opacity-50 rotate-3;
+    box-shadow: var(--shadow-strong);
+  }
+
+  /* Chat Bubble Styles */
+  .chat-bubble-sent {
+    background: var(--gradient-primary);
+    @apply text-white rounded-2xl rounded-br-md px-4 py-2 max-w-xs ml-auto;
+  }
+
+  .chat-bubble-received {
+    @apply bg-muted rounded-2xl rounded-bl-md px-4 py-2 max-w-xs;
+  }
+
+  /* Channel Icons */
+  .channel-whatsapp {
+    @apply text-green-500;
+  }
+
+  .channel-instagram {
+    @apply text-pink-500;
+  }
+
+  .channel-phone {
+    @apply text-blue-500;
+  }
+
+  /* Status Indicators */
+  .status-new {
+    @apply bg-blue-100 text-blue-700 border-blue-200;
+  }
+
+  .status-qualifying {
+    @apply bg-yellow-100 text-yellow-700 border-yellow-200;
+  }
+
+  .status-proposal {
+    @apply bg-purple-100 text-purple-700 border-purple-200;
+  }
+
+  .status-closing {
+    @apply bg-green-100 text-green-700 border-green-200;
+  }
+
+  /* Gradients */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-success {
+    background: var(--gradient-success);
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply backdrop-blur-md bg-background/80 border border-border/50;
+  }
+
+  /* Animations */
+  .animate-slide-up {
+    animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Scrollbar Styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-muted/30;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
   }
 }
