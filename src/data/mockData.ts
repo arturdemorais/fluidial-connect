@@ -192,18 +192,24 @@ export const mockLeads: Lead[] = [
     name: 'João Silva',
     email: 'joao@empresa.com',
     phone: '+55 11 99999-9999',
+    company: 'Tech Solutions Ltda',
     value: 15000,
+    currency: 'BRL',
     stage: defaultPipelineStages[1], // Qualificando
     source: 'whatsapp',
     assignedTo: '2',
     createdAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000),
     updatedAt: new Date(Date.now() - 60 * 60 * 1000),
-    lastInteraction: new Date(Date.now() - 2 * 60 * 60 * 1000),
-    followUpDate: new Date(Date.now() + 24 * 60 * 60 * 1000), // amanhã
-    currency: 'BRL' as const,
+    lastContact: new Date(Date.now() - 2 * 60 * 60 * 1000),
     tags: ['enterprise', 'high-priority'],
-    priority: 'high' as const,
-    temperature: 'hot' as const,
+    customFields: [
+      { fieldId: 'budget', value: 50000 },
+      { fieldId: 'decision_maker', value: 'CEO' }
+    ],
+    contacts: [
+      { id: 'c1', type: 'whatsapp', value: '+55 11 99999-9999', verified: true, primary: true },
+      { id: 'c2', type: 'email', value: 'joao@empresa.com', verified: true, primary: false }
+    ],
     conversations: mockConversations.filter(c => c.leadId === '1'),
     activities: generateMockActivities('1')
   },
@@ -212,18 +218,24 @@ export const mockLeads: Lead[] = [
     name: 'Maria Oliveira',
     email: 'maria@startup.com',
     phone: '+55 11 88888-8888',
+    company: 'StartupXYZ',
     value: 8500,
+    currency: 'BRL',
     stage: defaultPipelineStages[0], // Novo Lead
     source: 'instagram',
     assignedTo: '3',
     createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000),
     updatedAt: new Date(Date.now() - 30 * 60 * 1000),
-    lastInteraction: new Date(Date.now() - 30 * 60 * 1000),
-    followUpDate: new Date(Date.now() + 2 * 60 * 60 * 1000), // hoje em 2h
-    currency: 'BRL' as const,
+    lastContact: new Date(Date.now() - 30 * 60 * 1000),
     tags: ['startup', 'medium-priority'],
-    priority: 'medium' as const,
-    temperature: 'warm' as const,
+    customFields: [
+      { fieldId: 'budget', value: 20000 },
+      { fieldId: 'decision_maker', value: 'CTO' }
+    ],
+    contacts: [
+      { id: 'c3', type: 'instagram', value: '@maria_startup', verified: true, primary: true },
+      { id: 'c4', type: 'email', value: 'maria@startup.com', verified: false, primary: false }
+    ],
     conversations: mockConversations.filter(c => c.leadId === '2'),
     activities: generateMockActivities('2')
   },
@@ -232,18 +244,25 @@ export const mockLeads: Lead[] = [
     name: 'Pedro Santos',
     email: 'pedro@consultoria.com',
     phone: '+55 11 77777-7777',
+    company: 'Consultoria Estratégica',
     value: 25000,
+    currency: 'BRL',
     stage: defaultPipelineStages[2], // Proposta
     source: 'referral',
     assignedTo: '2',
     createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
     updatedAt: new Date(Date.now() - 2 * 60 * 60 * 1000),
-    lastInteraction: new Date(Date.now() - 4 * 60 * 60 * 1000),
-    followUpDate: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), // ontem (atrasado)
-    currency: 'BRL' as const,
+    lastContact: new Date(Date.now() - 4 * 60 * 60 * 1000),
     tags: ['enterprise', 'hot-lead'],
-    priority: 'urgent' as const,
-    temperature: 'hot' as const,
+    customFields: [
+      { fieldId: 'budget', value: 80000 },
+      { fieldId: 'decision_maker', value: 'CEO' },
+      { fieldId: 'timeline', value: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000) }
+    ],
+    contacts: [
+      { id: 'c5', type: 'phone', value: '+55 11 77777-7777', verified: true, primary: true },
+      { id: 'c6', type: 'email', value: 'pedro@consultoria.com', verified: true, primary: false }
+    ],
     conversations: [],
     activities: generateMockActivities('3')
   },
@@ -252,39 +271,27 @@ export const mockLeads: Lead[] = [
     name: 'Ana Costa',
     email: 'ana@ecommerce.com',
     phone: '+55 11 66666-6666',
+    company: 'E-commerce Plus',
     value: 12000,
+    currency: 'BRL',
     stage: defaultPipelineStages[3], // Fechamento
     source: 'website',
     assignedTo: '1',
     createdAt: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000),
     updatedAt: new Date(Date.now() - 1 * 60 * 60 * 1000),
-    lastInteraction: new Date(Date.now() - 1 * 60 * 60 * 1000),
-    followUpDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // próxima semana
-    currency: 'BRL' as const,
+    lastContact: new Date(Date.now() - 1 * 60 * 60 * 1000),
     tags: ['ecommerce', 'ready-to-close'],
-    priority: 'high' as const,
-    temperature: 'hot' as const,
+    customFields: [
+      { fieldId: 'budget', value: 30000 },
+      { fieldId: 'decision_maker', value: 'Gerente' },
+      { fieldId: 'timeline', value: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) }
+    ],
+    contacts: [
+      { id: 'c7', type: 'email', value: 'ana@ecommerce.com', verified: true, primary: true },
+      { id: 'c8', type: 'phone', value: '+55 11 66666-6666', verified: true, primary: false }
+    ],
     conversations: [],
     activities: generateMockActivities('4')
-  },
-  // Leads frios para demonstrar funcionalidades
-  {
-    id: '5',
-    name: 'Carlos Ferreira',
-    email: 'carlos@email.com',
-    value: 3000,
-    stage: defaultPipelineStages[0],
-    source: 'whatsapp',
-    assignedTo: '2',
-    createdAt: new Date(Date.now() - 16 * 24 * 60 * 60 * 1000),
-    updatedAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000),
-    lastInteraction: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000), // 5 dias atrás (frio)
-    followUpDate: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // atrasado há 2 dias
-    currency: 'BRL' as const,
-    priority: 'low' as const,
-    temperature: 'cold' as const,
-    conversations: [],
-    activities: generateMockActivities('5')
   }
 ];
 

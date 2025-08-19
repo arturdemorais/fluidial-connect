@@ -94,11 +94,11 @@ export function LeadCard({ lead, index }: LeadCardProps) {
             <Badge variant={getSourceBadgeVariant(lead.source)} className="text-xs">
               {lead.source}
             </Badge>
-            {lead.lastInteraction && (
+            {lead.lastContact && (
               <div className="flex items-center text-xs text-muted-foreground">
                 <Calendar className="h-3 w-3 mr-1" />
                 <span>
-                  {formatDistanceToNow(lead.lastInteraction, { 
+                  {formatDistanceToNow(lead.lastContact, { 
                     addSuffix: true, 
                     locale: ptBR 
                   })}
