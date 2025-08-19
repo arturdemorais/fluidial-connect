@@ -200,6 +200,7 @@ export const mockLeads: Lead[] = [
     updatedAt: new Date(Date.now() - 60 * 60 * 1000),
     lastInteraction: new Date(Date.now() - 2 * 60 * 60 * 1000),
     followUpDate: new Date(Date.now() + 24 * 60 * 60 * 1000), // amanhã
+    currency: 'BRL' as const,
     tags: ['enterprise', 'high-priority'],
     priority: 'high' as const,
     temperature: 'hot' as const,
@@ -219,6 +220,7 @@ export const mockLeads: Lead[] = [
     updatedAt: new Date(Date.now() - 30 * 60 * 1000),
     lastInteraction: new Date(Date.now() - 30 * 60 * 1000),
     followUpDate: new Date(Date.now() + 2 * 60 * 60 * 1000), // hoje em 2h
+    currency: 'BRL' as const,
     tags: ['startup', 'medium-priority'],
     priority: 'medium' as const,
     temperature: 'warm' as const,
@@ -238,6 +240,7 @@ export const mockLeads: Lead[] = [
     updatedAt: new Date(Date.now() - 2 * 60 * 60 * 1000),
     lastInteraction: new Date(Date.now() - 4 * 60 * 60 * 1000),
     followUpDate: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), // ontem (atrasado)
+    currency: 'BRL' as const,
     tags: ['enterprise', 'hot-lead'],
     priority: 'urgent' as const,
     temperature: 'hot' as const,
@@ -257,6 +260,7 @@ export const mockLeads: Lead[] = [
     updatedAt: new Date(Date.now() - 1 * 60 * 60 * 1000),
     lastInteraction: new Date(Date.now() - 1 * 60 * 60 * 1000),
     followUpDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // próxima semana
+    currency: 'BRL' as const,
     tags: ['ecommerce', 'ready-to-close'],
     priority: 'high' as const,
     temperature: 'hot' as const,
@@ -276,6 +280,7 @@ export const mockLeads: Lead[] = [
     updatedAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000),
     lastInteraction: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000), // 5 dias atrás (frio)
     followUpDate: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // atrasado há 2 dias
+    currency: 'BRL' as const,
     priority: 'low' as const,
     temperature: 'cold' as const,
     conversations: [],
