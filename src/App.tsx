@@ -10,6 +10,7 @@ import Pipeline from "./pages/Pipeline";
 import Contacts from "./pages/Contacts";
 import Integrations from "./pages/Integrations";
 import Index from "./pages/Index";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,7 +37,12 @@ const App = () => (
           <Routes>
             <Route path="/" element={
               <AppLayout>
-                <Index />
+                <Dashboard />
+              </AppLayout>
+            } />
+            <Route path="/dashboard" element={
+              <AppLayout>
+                <Dashboard />
               </AppLayout>
             } />
             <Route path="/pipeline" element={

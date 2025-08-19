@@ -1,5 +1,6 @@
 import { Lead } from '@/types';
 import { useCRM } from '@/contexts/CRMContext';
+import { useState } from 'react';
 import { 
   Sheet,
   SheetContent,
@@ -12,12 +13,17 @@ import { Separator } from '@/components/ui/separator';
 import { LeadInfo } from './LeadInfo';
 import { ChatInterface } from './ChatInterface';
 import { ActivityTimeline } from './ActivityTimeline';
+import { FullScreenChat } from '@/components/chat/FullScreenChat';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
   User, 
   MessageCircle, 
   Clock, 
-  X 
+  X,
+  Maximize2,
+  Zap,
+  Calendar,
+  Phone
 } from 'lucide-react';
 
 interface LeadDetailModalProps {
@@ -27,6 +33,8 @@ interface LeadDetailModalProps {
 }
 
 export function LeadDetailModal({ lead, open, onClose }: LeadDetailModalProps) {
+  const [showFullScreenChat, setShowFullScreenChat] = useState(false);
+  
   if (!lead) return null;
 
   const formatCurrency = (value: number) => {
@@ -35,6 +43,15 @@ export function LeadDetailModal({ lead, open, onClose }: LeadDetailModalProps) {
       currency: 'BRL'
     }).format(value);
   };
+
+  if (showFullScreenChat) {
+    return (
+      <FullScreenChat 
+        lead={lead} 
+        onClose={() => setShowFullScreenChat(false)}
+      />
+    );
+  }
 
   return (
     <Sheet open={open} onOpenChange={onClose}>
@@ -101,13 +118,37 @@ export function LeadDetailModal({ lead, open, onClose }: LeadDetailModalProps) {
             </div>
           </div>
 
-          {/* Right Side - Chat Interface */}
+          {/* Right Side - Chat Interface Otimizada */}
           <div className="w-96 flex flex-col">
             <div className="p-4 border-b border-border">
-              <h3 className="font-semibold text-lg">Conversas</h3>
-              <p className="text-sm text-muted-foreground">
-                {lead.conversations.length} canal(is) ativo(s)
-              </p>
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-semibold text-lg">Conversas</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {lead.conversations.length} canal(is) ativo(s)
+                  </p>
+                </div>
+                <Button 
+                  variant="outline" 
+                  size="icon"
+                  onClick={() => setShowFullScreenChat(true)}
+                  title="Expandir chat"
+                >
+                  <Maximize2 className="h-4 w-4" />
+                </Button>
+              </div>
+              
+              {/* Ações Rápidas */}
+              <div className="flex space-x-2 mt-3">
+                <Button size="sm" variant="outline" className="flex-1">
+                  <Phone className="h-3 w-3 mr-1" />
+                  Call
+                </Button>
+                <Button size="sm" className="flex-1 bg-gradient-primary">
+                  <Zap className="h-3 w-3 mr-1" />
+                  Acelerar
+                </Button>
+              </div>
             </div>
             
             <div className="flex-1">
